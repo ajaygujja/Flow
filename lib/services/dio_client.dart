@@ -8,19 +8,19 @@ const _defaultConnectTimeout = Duration.millisecondsPerMinute;
 const _defaultReceiveTimeout = Duration.millisecondsPerMinute;
 
 class DioClient {
-  late Dio? _dio;
-  final String baseUrl;
+  Dio? dioInstance;
+  final String? baseUrl;
 
   static Map<String, String> header() =>
       {'Content-Type': 'application/json; charset=UTF-8'};
 
-  DioClient(
+  DioClient({
     this.baseUrl,
     Dio? dio,
-  ) {
-    _dio = dio ?? Dio();
-    _dio!
-      ..options.baseUrl = baseUrl
+  }) {
+    dioInstance = dio ?? Dio();
+    dioInstance!
+      ..options.baseUrl = baseUrl!
       ..options.connectTimeout = _defaultConnectTimeout
       ..options.receiveTimeout = _defaultReceiveTimeout
       ..httpClientAdapter
@@ -29,7 +29,7 @@ class DioClient {
   }
 
   void initInterceptors() {
-    _dio!.interceptors.add(
+    dioInstance!.interceptors.add(
       InterceptorsWrapper(
         onRequest: (requestOptions, handler) {
           logger.i(
@@ -59,13 +59,13 @@ class DioClient {
     Response<String> response;
     try {
       if (method == Method.POST) {
-        response = await _dio!.post(url, data: params);
+        response = await dioInstance!.post(url, data: params);
       } else if (method == Method.DELETE) {
-        response = await _dio!.delete(url);
+        response = await dioInstance!.delete(url);
       } else if (method == Method.PATCH) {
-        response = await _dio!.patch(url);
+        response = await dioInstance!.patch(url);
       } else {
-        response = await _dio!.get(url, queryParameters: params);
+        response = await dioInstance!.get(url, queryParameters: params);
       }
       return response;
     } on SocketException catch (e) {

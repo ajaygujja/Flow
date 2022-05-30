@@ -1,5 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:flow/model/feelings_model.dart';
 import 'package:flutter/material.dart';
+
+import 'repository/api_repository.dart';
+import 'services/api_results/api_result.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,13 +20,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(
+        title: 'Flutter Demo Home Page',
+        apiRepository: ApiRepository.getInstance(),
+      ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title, required this.apiRepository})
+      : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -34,6 +42,7 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
+  final ApiRepository apiRepository;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -42,7 +51,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
+  Future<void> _incrementCounter() async {
+    ApiResult<FeelingsModel> apiResult =
+        await widget.apiRepository.getListOfUserFeeling();
+
+    debugPrint("result - ${apiResult}");
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below

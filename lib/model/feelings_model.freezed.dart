@@ -21,7 +21,7 @@ FeelingsModel _$FeelingsModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$FeelingsModel {
   String get status => throw _privateConstructorUsedError;
-  Data get data => throw _privateConstructorUsedError;
+  UserFeelingsData get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,9 +34,9 @@ abstract class $FeelingsModelCopyWith<$Res> {
   factory $FeelingsModelCopyWith(
           FeelingsModel value, $Res Function(FeelingsModel) then) =
       _$FeelingsModelCopyWithImpl<$Res>;
-  $Res call({String status, Data data});
+  $Res call({String status, UserFeelingsData data});
 
-  $DataCopyWith<$Res> get data;
+  $UserFeelingsDataCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -61,13 +61,13 @@ class _$FeelingsModelCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Data,
+              as UserFeelingsData,
     ));
   }
 
   @override
-  $DataCopyWith<$Res> get data {
-    return $DataCopyWith<$Res>(_value.data, (value) {
+  $UserFeelingsDataCopyWith<$Res> get data {
+    return $UserFeelingsDataCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -80,10 +80,10 @@ abstract class _$$_FeelingsModelCopyWith<$Res>
           _$_FeelingsModel value, $Res Function(_$_FeelingsModel) then) =
       __$$_FeelingsModelCopyWithImpl<$Res>;
   @override
-  $Res call({String status, Data data});
+  $Res call({String status, UserFeelingsData data});
 
   @override
-  $DataCopyWith<$Res> get data;
+  $UserFeelingsDataCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$_FeelingsModelCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Data,
+              as UserFeelingsData,
     ));
   }
 }
@@ -126,7 +126,7 @@ class _$_FeelingsModel implements _FeelingsModel {
   @override
   final String status;
   @override
-  final Data data;
+  final UserFeelingsData data;
 
   @override
   String toString() {
@@ -163,7 +163,7 @@ class _$_FeelingsModel implements _FeelingsModel {
 abstract class _FeelingsModel implements FeelingsModel {
   const factory _FeelingsModel(
       {required final String status,
-      required final Data data}) = _$_FeelingsModel;
+      required final UserFeelingsData data}) = _$_FeelingsModel;
 
   factory _FeelingsModel.fromJson(Map<String, dynamic> json) =
       _$_FeelingsModel.fromJson;
@@ -171,47 +171,53 @@ abstract class _FeelingsModel implements FeelingsModel {
   @override
   String get status => throw _privateConstructorUsedError;
   @override
-  Data get data => throw _privateConstructorUsedError;
+  UserFeelingsData get data => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_FeelingsModelCopyWith<_$_FeelingsModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-Data _$DataFromJson(Map<String, dynamic> json) {
-  return _Data.fromJson(json);
+UserFeelingsData _$UserFeelingsDataFromJson(Map<String, dynamic> json) {
+  return _UserFeelingsData.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Data {
+mixin _$UserFeelingsData {
+  @JsonKey(name: 'feeling_percentage')
   FeelingPercentage get feelingPercentage => throw _privateConstructorUsedError;
+  @JsonKey(name: 'feeling_list')
   List<FeelingList> get feelingList => throw _privateConstructorUsedError;
+  @JsonKey(name: 'video_arr')
   List<VideoArr> get videoArr => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $DataCopyWith<Data> get copyWith => throw _privateConstructorUsedError;
+  $UserFeelingsDataCopyWith<UserFeelingsData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $DataCopyWith<$Res> {
-  factory $DataCopyWith(Data value, $Res Function(Data) then) =
-      _$DataCopyWithImpl<$Res>;
+abstract class $UserFeelingsDataCopyWith<$Res> {
+  factory $UserFeelingsDataCopyWith(
+          UserFeelingsData value, $Res Function(UserFeelingsData) then) =
+      _$UserFeelingsDataCopyWithImpl<$Res>;
   $Res call(
-      {FeelingPercentage feelingPercentage,
-      List<FeelingList> feelingList,
-      List<VideoArr> videoArr});
+      {@JsonKey(name: 'feeling_percentage') FeelingPercentage feelingPercentage,
+      @JsonKey(name: 'feeling_list') List<FeelingList> feelingList,
+      @JsonKey(name: 'video_arr') List<VideoArr> videoArr});
 
   $FeelingPercentageCopyWith<$Res> get feelingPercentage;
 }
 
 /// @nodoc
-class _$DataCopyWithImpl<$Res> implements $DataCopyWith<$Res> {
-  _$DataCopyWithImpl(this._value, this._then);
+class _$UserFeelingsDataCopyWithImpl<$Res>
+    implements $UserFeelingsDataCopyWith<$Res> {
+  _$UserFeelingsDataCopyWithImpl(this._value, this._then);
 
-  final Data _value;
+  final UserFeelingsData _value;
   // ignore: unused_field
-  final $Res Function(Data) _then;
+  final $Res Function(UserFeelingsData) _then;
 
   @override
   $Res call({
@@ -244,27 +250,31 @@ class _$DataCopyWithImpl<$Res> implements $DataCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_DataCopyWith<$Res> implements $DataCopyWith<$Res> {
-  factory _$$_DataCopyWith(_$_Data value, $Res Function(_$_Data) then) =
-      __$$_DataCopyWithImpl<$Res>;
+abstract class _$$_UserFeelingsDataCopyWith<$Res>
+    implements $UserFeelingsDataCopyWith<$Res> {
+  factory _$$_UserFeelingsDataCopyWith(
+          _$_UserFeelingsData value, $Res Function(_$_UserFeelingsData) then) =
+      __$$_UserFeelingsDataCopyWithImpl<$Res>;
   @override
   $Res call(
-      {FeelingPercentage feelingPercentage,
-      List<FeelingList> feelingList,
-      List<VideoArr> videoArr});
+      {@JsonKey(name: 'feeling_percentage') FeelingPercentage feelingPercentage,
+      @JsonKey(name: 'feeling_list') List<FeelingList> feelingList,
+      @JsonKey(name: 'video_arr') List<VideoArr> videoArr});
 
   @override
   $FeelingPercentageCopyWith<$Res> get feelingPercentage;
 }
 
 /// @nodoc
-class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res>
-    implements _$$_DataCopyWith<$Res> {
-  __$$_DataCopyWithImpl(_$_Data _value, $Res Function(_$_Data) _then)
-      : super(_value, (v) => _then(v as _$_Data));
+class __$$_UserFeelingsDataCopyWithImpl<$Res>
+    extends _$UserFeelingsDataCopyWithImpl<$Res>
+    implements _$$_UserFeelingsDataCopyWith<$Res> {
+  __$$_UserFeelingsDataCopyWithImpl(
+      _$_UserFeelingsData _value, $Res Function(_$_UserFeelingsData) _then)
+      : super(_value, (v) => _then(v as _$_UserFeelingsData));
 
   @override
-  _$_Data get _value => super._value as _$_Data;
+  _$_UserFeelingsData get _value => super._value as _$_UserFeelingsData;
 
   @override
   $Res call({
@@ -272,7 +282,7 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res>
     Object? feelingList = freezed,
     Object? videoArr = freezed,
   }) {
-    return _then(_$_Data(
+    return _then(_$_UserFeelingsData(
       feelingPercentage: feelingPercentage == freezed
           ? _value.feelingPercentage
           : feelingPercentage // ignore: cast_nullable_to_non_nullable
@@ -291,20 +301,26 @@ class __$$_DataCopyWithImpl<$Res> extends _$DataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Data implements _Data {
-  const _$_Data(
-      {required this.feelingPercentage,
-      required final List<FeelingList> feelingList,
-      required final List<VideoArr> videoArr})
+class _$_UserFeelingsData implements _UserFeelingsData {
+  const _$_UserFeelingsData(
+      {@JsonKey(name: 'feeling_percentage')
+          required this.feelingPercentage,
+      @JsonKey(name: 'feeling_list')
+          required final List<FeelingList> feelingList,
+      @JsonKey(name: 'video_arr')
+          required final List<VideoArr> videoArr})
       : _feelingList = feelingList,
         _videoArr = videoArr;
 
-  factory _$_Data.fromJson(Map<String, dynamic> json) => _$$_DataFromJson(json);
+  factory _$_UserFeelingsData.fromJson(Map<String, dynamic> json) =>
+      _$$_UserFeelingsDataFromJson(json);
 
   @override
+  @JsonKey(name: 'feeling_percentage')
   final FeelingPercentage feelingPercentage;
   final List<FeelingList> _feelingList;
   @override
+  @JsonKey(name: 'feeling_list')
   List<FeelingList> get feelingList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_feelingList);
@@ -312,6 +328,7 @@ class _$_Data implements _Data {
 
   final List<VideoArr> _videoArr;
   @override
+  @JsonKey(name: 'video_arr')
   List<VideoArr> get videoArr {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_videoArr);
@@ -319,14 +336,14 @@ class _$_Data implements _Data {
 
   @override
   String toString() {
-    return 'Data(feelingPercentage: $feelingPercentage, feelingList: $feelingList, videoArr: $videoArr)';
+    return 'UserFeelingsData(feelingPercentage: $feelingPercentage, feelingList: $feelingList, videoArr: $videoArr)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Data &&
+            other is _$_UserFeelingsData &&
             const DeepCollectionEquality()
                 .equals(other.feelingPercentage, feelingPercentage) &&
             const DeepCollectionEquality()
@@ -344,32 +361,40 @@ class _$_Data implements _Data {
 
   @JsonKey(ignore: true)
   @override
-  _$$_DataCopyWith<_$_Data> get copyWith =>
-      __$$_DataCopyWithImpl<_$_Data>(this, _$identity);
+  _$$_UserFeelingsDataCopyWith<_$_UserFeelingsData> get copyWith =>
+      __$$_UserFeelingsDataCopyWithImpl<_$_UserFeelingsData>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DataToJson(this);
+    return _$$_UserFeelingsDataToJson(this);
   }
 }
 
-abstract class _Data implements Data {
-  const factory _Data(
-      {required final FeelingPercentage feelingPercentage,
-      required final List<FeelingList> feelingList,
-      required final List<VideoArr> videoArr}) = _$_Data;
+abstract class _UserFeelingsData implements UserFeelingsData {
+  const factory _UserFeelingsData(
+      {@JsonKey(name: 'feeling_percentage')
+          required final FeelingPercentage feelingPercentage,
+      @JsonKey(name: 'feeling_list')
+          required final List<FeelingList> feelingList,
+      @JsonKey(name: 'video_arr')
+          required final List<VideoArr> videoArr}) = _$_UserFeelingsData;
 
-  factory _Data.fromJson(Map<String, dynamic> json) = _$_Data.fromJson;
+  factory _UserFeelingsData.fromJson(Map<String, dynamic> json) =
+      _$_UserFeelingsData.fromJson;
 
   @override
+  @JsonKey(name: 'feeling_percentage')
   FeelingPercentage get feelingPercentage => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'feeling_list')
   List<FeelingList> get feelingList => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'video_arr')
   List<VideoArr> get videoArr => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_DataCopyWith<_$_Data> get copyWith => throw _privateConstructorUsedError;
+  _$$_UserFeelingsDataCopyWith<_$_UserFeelingsData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 FeelingList _$FeelingListFromJson(Map<String, dynamic> json) {
@@ -378,9 +403,13 @@ FeelingList _$FeelingListFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeelingList {
+  @JsonKey(name: 'user_feeling_id')
   String get userFeelingId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'feeling_id')
   String get feelingId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'feeling_name')
   String get feelingName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'submit_time')
   DateTime get submitTime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -395,10 +424,10 @@ abstract class $FeelingListCopyWith<$Res> {
           FeelingList value, $Res Function(FeelingList) then) =
       _$FeelingListCopyWithImpl<$Res>;
   $Res call(
-      {String userFeelingId,
-      String feelingId,
-      String feelingName,
-      DateTime submitTime});
+      {@JsonKey(name: 'user_feeling_id') String userFeelingId,
+      @JsonKey(name: 'feeling_id') String feelingId,
+      @JsonKey(name: 'feeling_name') String feelingName,
+      @JsonKey(name: 'submit_time') DateTime submitTime});
 }
 
 /// @nodoc
@@ -445,10 +474,10 @@ abstract class _$$_FeelingListCopyWith<$Res>
       __$$_FeelingListCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String userFeelingId,
-      String feelingId,
-      String feelingName,
-      DateTime submitTime});
+      {@JsonKey(name: 'user_feeling_id') String userFeelingId,
+      @JsonKey(name: 'feeling_id') String feelingId,
+      @JsonKey(name: 'feeling_name') String feelingName,
+      @JsonKey(name: 'submit_time') DateTime submitTime});
 }
 
 /// @nodoc
@@ -493,21 +522,25 @@ class __$$_FeelingListCopyWithImpl<$Res> extends _$FeelingListCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FeelingList implements _FeelingList {
   const _$_FeelingList(
-      {required this.userFeelingId,
-      required this.feelingId,
-      required this.feelingName,
-      required this.submitTime});
+      {@JsonKey(name: 'user_feeling_id') required this.userFeelingId,
+      @JsonKey(name: 'feeling_id') required this.feelingId,
+      @JsonKey(name: 'feeling_name') required this.feelingName,
+      @JsonKey(name: 'submit_time') required this.submitTime});
 
   factory _$_FeelingList.fromJson(Map<String, dynamic> json) =>
       _$$_FeelingListFromJson(json);
 
   @override
+  @JsonKey(name: 'user_feeling_id')
   final String userFeelingId;
   @override
+  @JsonKey(name: 'feeling_id')
   final String feelingId;
   @override
+  @JsonKey(name: 'feeling_name')
   final String feelingName;
   @override
+  @JsonKey(name: 'submit_time')
   final DateTime submitTime;
 
   @override
@@ -551,21 +584,29 @@ class _$_FeelingList implements _FeelingList {
 
 abstract class _FeelingList implements FeelingList {
   const factory _FeelingList(
-      {required final String userFeelingId,
-      required final String feelingId,
-      required final String feelingName,
-      required final DateTime submitTime}) = _$_FeelingList;
+      {@JsonKey(name: 'user_feeling_id')
+          required final String userFeelingId,
+      @JsonKey(name: 'feeling_id')
+          required final String feelingId,
+      @JsonKey(name: 'feeling_name')
+          required final String feelingName,
+      @JsonKey(name: 'submit_time')
+          required final DateTime submitTime}) = _$_FeelingList;
 
   factory _FeelingList.fromJson(Map<String, dynamic> json) =
       _$_FeelingList.fromJson;
 
   @override
+  @JsonKey(name: 'user_feeling_id')
   String get userFeelingId => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'feeling_id')
   String get feelingId => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'feeling_name')
   String get feelingName => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'submit_time')
   DateTime get submitTime => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
@@ -579,11 +620,17 @@ FeelingPercentage _$FeelingPercentageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeelingPercentage {
+  @JsonKey(name: 'Happy')
   String get happy => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Sad')
   String get sad => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Energetic')
   String get energetic => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Calm')
   String get calm => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Angry')
   String get angry => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Bored')
   String get bored => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -598,12 +645,12 @@ abstract class $FeelingPercentageCopyWith<$Res> {
           FeelingPercentage value, $Res Function(FeelingPercentage) then) =
       _$FeelingPercentageCopyWithImpl<$Res>;
   $Res call(
-      {String happy,
-      String sad,
-      String energetic,
-      String calm,
-      String angry,
-      String bored});
+      {@JsonKey(name: 'Happy') String happy,
+      @JsonKey(name: 'Sad') String sad,
+      @JsonKey(name: 'Energetic') String energetic,
+      @JsonKey(name: 'Calm') String calm,
+      @JsonKey(name: 'Angry') String angry,
+      @JsonKey(name: 'Bored') String bored});
 }
 
 /// @nodoc
@@ -661,12 +708,12 @@ abstract class _$$_FeelingPercentageCopyWith<$Res>
       __$$_FeelingPercentageCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String happy,
-      String sad,
-      String energetic,
-      String calm,
-      String angry,
-      String bored});
+      {@JsonKey(name: 'Happy') String happy,
+      @JsonKey(name: 'Sad') String sad,
+      @JsonKey(name: 'Energetic') String energetic,
+      @JsonKey(name: 'Calm') String calm,
+      @JsonKey(name: 'Angry') String angry,
+      @JsonKey(name: 'Bored') String bored});
 }
 
 /// @nodoc
@@ -722,27 +769,33 @@ class __$$_FeelingPercentageCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_FeelingPercentage implements _FeelingPercentage {
   const _$_FeelingPercentage(
-      {required this.happy,
-      required this.sad,
-      required this.energetic,
-      required this.calm,
-      required this.angry,
-      required this.bored});
+      {@JsonKey(name: 'Happy') required this.happy,
+      @JsonKey(name: 'Sad') required this.sad,
+      @JsonKey(name: 'Energetic') required this.energetic,
+      @JsonKey(name: 'Calm') required this.calm,
+      @JsonKey(name: 'Angry') required this.angry,
+      @JsonKey(name: 'Bored') required this.bored});
 
   factory _$_FeelingPercentage.fromJson(Map<String, dynamic> json) =>
       _$$_FeelingPercentageFromJson(json);
 
   @override
+  @JsonKey(name: 'Happy')
   final String happy;
   @override
+  @JsonKey(name: 'Sad')
   final String sad;
   @override
+  @JsonKey(name: 'Energetic')
   final String energetic;
   @override
+  @JsonKey(name: 'Calm')
   final String calm;
   @override
+  @JsonKey(name: 'Angry')
   final String angry;
   @override
+  @JsonKey(name: 'Bored')
   final String bored;
 
   @override
@@ -788,27 +841,34 @@ class _$_FeelingPercentage implements _FeelingPercentage {
 
 abstract class _FeelingPercentage implements FeelingPercentage {
   const factory _FeelingPercentage(
-      {required final String happy,
-      required final String sad,
-      required final String energetic,
-      required final String calm,
-      required final String angry,
-      required final String bored}) = _$_FeelingPercentage;
+          {@JsonKey(name: 'Happy') required final String happy,
+          @JsonKey(name: 'Sad') required final String sad,
+          @JsonKey(name: 'Energetic') required final String energetic,
+          @JsonKey(name: 'Calm') required final String calm,
+          @JsonKey(name: 'Angry') required final String angry,
+          @JsonKey(name: 'Bored') required final String bored}) =
+      _$_FeelingPercentage;
 
   factory _FeelingPercentage.fromJson(Map<String, dynamic> json) =
       _$_FeelingPercentage.fromJson;
 
   @override
+  @JsonKey(name: 'Happy')
   String get happy => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'Sad')
   String get sad => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'Energetic')
   String get energetic => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'Calm')
   String get calm => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'Angry')
   String get angry => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'Bored')
   String get bored => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
@@ -824,6 +884,7 @@ VideoArr _$VideoArrFromJson(Map<String, dynamic> json) {
 mixin _$VideoArr {
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  @JsonKey(name: 'youtube_url')
   String get youtubeUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -836,7 +897,10 @@ mixin _$VideoArr {
 abstract class $VideoArrCopyWith<$Res> {
   factory $VideoArrCopyWith(VideoArr value, $Res Function(VideoArr) then) =
       _$VideoArrCopyWithImpl<$Res>;
-  $Res call({String title, String description, String youtubeUrl});
+  $Res call(
+      {String title,
+      String description,
+      @JsonKey(name: 'youtube_url') String youtubeUrl});
 }
 
 /// @nodoc
@@ -876,7 +940,10 @@ abstract class _$$_VideoArrCopyWith<$Res> implements $VideoArrCopyWith<$Res> {
           _$_VideoArr value, $Res Function(_$_VideoArr) then) =
       __$$_VideoArrCopyWithImpl<$Res>;
   @override
-  $Res call({String title, String description, String youtubeUrl});
+  $Res call(
+      {String title,
+      String description,
+      @JsonKey(name: 'youtube_url') String youtubeUrl});
 }
 
 /// @nodoc
@@ -918,7 +985,7 @@ class _$_VideoArr implements _VideoArr {
   const _$_VideoArr(
       {required this.title,
       required this.description,
-      required this.youtubeUrl});
+      @JsonKey(name: 'youtube_url') required this.youtubeUrl});
 
   factory _$_VideoArr.fromJson(Map<String, dynamic> json) =>
       _$$_VideoArrFromJson(json);
@@ -928,6 +995,7 @@ class _$_VideoArr implements _VideoArr {
   @override
   final String description;
   @override
+  @JsonKey(name: 'youtube_url')
   final String youtubeUrl;
 
   @override
@@ -968,9 +1036,10 @@ class _$_VideoArr implements _VideoArr {
 
 abstract class _VideoArr implements VideoArr {
   const factory _VideoArr(
-      {required final String title,
-      required final String description,
-      required final String youtubeUrl}) = _$_VideoArr;
+          {required final String title,
+          required final String description,
+          @JsonKey(name: 'youtube_url') required final String youtubeUrl}) =
+      _$_VideoArr;
 
   factory _VideoArr.fromJson(Map<String, dynamic> json) = _$_VideoArr.fromJson;
 
@@ -979,6 +1048,7 @@ abstract class _VideoArr implements VideoArr {
   @override
   String get description => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'youtube_url')
   String get youtubeUrl => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

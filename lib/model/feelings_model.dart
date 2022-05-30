@@ -13,7 +13,7 @@ String feelingsModelToJson(FeelingsModel data) => json.encode(data.toJson());
 abstract class FeelingsModel with _$FeelingsModel {
   const factory FeelingsModel({
     required String status,
-    required Data data,
+    required UserFeelingsData data,
   }) = _FeelingsModel;
 
   factory FeelingsModel.fromJson(Map<String, dynamic> json) =>
@@ -21,23 +21,25 @@ abstract class FeelingsModel with _$FeelingsModel {
 }
 
 @freezed
-abstract class Data with _$Data {
-  const factory Data({
-    required FeelingPercentage feelingPercentage,
-    required List<FeelingList> feelingList,
-    required List<VideoArr> videoArr,
-  }) = _Data;
+abstract class UserFeelingsData with _$UserFeelingsData {
+  const factory UserFeelingsData({
+    @JsonKey(name: 'feeling_percentage')
+        required FeelingPercentage feelingPercentage,
+    @JsonKey(name: 'feeling_list') required List<FeelingList> feelingList,
+    @JsonKey(name: 'video_arr') required List<VideoArr> videoArr,
+  }) = _UserFeelingsData;
 
-  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
+  factory UserFeelingsData.fromJson(Map<String, dynamic> json) =>
+      _$UserFeelingsDataFromJson(json);
 }
 
 @freezed
 abstract class FeelingList with _$FeelingList {
   const factory FeelingList({
-    required String userFeelingId,
-    required String feelingId,
-    required String feelingName,
-    required DateTime submitTime,
+    @JsonKey(name: 'user_feeling_id') required String userFeelingId,
+    @JsonKey(name: 'feeling_id') required String feelingId,
+    @JsonKey(name: 'feeling_name') required String feelingName,
+    @JsonKey(name: 'submit_time') required DateTime submitTime,
   }) = _FeelingList;
 
   factory FeelingList.fromJson(Map<String, dynamic> json) =>
@@ -47,12 +49,12 @@ abstract class FeelingList with _$FeelingList {
 @freezed
 abstract class FeelingPercentage with _$FeelingPercentage {
   const factory FeelingPercentage({
-    required String happy,
-    required String sad,
-    required String energetic,
-    required String calm,
-    required String angry,
-    required String bored,
+    @JsonKey(name: 'Happy') required String happy,
+    @JsonKey(name: 'Sad') required String sad,
+    @JsonKey(name: 'Energetic') required String energetic,
+    @JsonKey(name: 'Calm') required String calm,
+    @JsonKey(name: 'Angry') required String angry,
+    @JsonKey(name: 'Bored') required String bored,
   }) = _FeelingPercentage;
 
   factory FeelingPercentage.fromJson(Map<String, dynamic> json) =>
@@ -64,7 +66,7 @@ abstract class VideoArr with _$VideoArr {
   const factory VideoArr({
     required String title,
     required String description,
-    required String youtubeUrl,
+    @JsonKey(name: 'youtube_url') required String youtubeUrl,
   }) = _VideoArr;
 
   factory VideoArr.fromJson(Map<String, dynamic> json) =>

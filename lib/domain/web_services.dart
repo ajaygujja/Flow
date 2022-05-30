@@ -1,8 +1,12 @@
+import 'package:dio/dio.dart';
+import 'package:flow/constant.dart';
+import 'package:flow/services/api_results/api_result.dart';
+import 'package:flow/model/feelings_model.dart';
+import 'package:flow/services/dio_client.dart';
+import 'package:flow/services/network_exceptions/network_exceptions.dart';
 import 'package:flutter/foundation.dart';
-import 'package:quotes_app/constant.dart';
-import 'package:quotes_app/domain/domain.dart';
-import 'package:quotes_app/model/models.dart';
-import 'package:quotes_app/services/services.dart';
+
+import 'remote_interface.dart';
 
 class WebServices implements IDataSource {
   final DioClient? dioClient;
@@ -14,41 +18,29 @@ class WebServices implements IDataSource {
         );
 
   @override
-  Future<ApiResult<List<QuoteResponse>>> getQuotes() async {
+  Future<ApiResult<FeelingsModel>> getListOfUserFeeling() async {
+    var params = {"user_id": 3206161992, "feeling_date": "15-04-2022"};
+
+    dioClient?.dioInstance?.options.headers['x-api-key'] =
+        'f6d646a6c2f2df883ea0cccaa4097358ede98284';
     try {
-      final response =
-          await dioClient!.request(url: "api/quotes", method: Method.GET);
+      final response = await dioClient!.request(
+          url: "qube_services/api/testservice/getListOfUserFeeling",
+          params: params,
+          method: Method.POST);
 
       if (response.statusCode != null && response.statusCode == 200) {
-        final parser = SearchResultsParser();
-
-        final quoteData = await parser.parseInBackground(response.data);
-
-        return ApiResult.success(data: quoteData);
+        return ApiResult.success(
+          data: feelingsModelFromJson(response.data),
+        );
       } else {
         return ApiResult.failure(
-            error:
-                NetworkExceptions.handleResponse(response.statusCode ?? 500));
+          error: NetworkExceptions.handleResponse(response.statusCode ?? 500),
+        );
       }
     } catch (e) {
-      logger.e(e.toString());
+      logger.e("---->" + e.toString());
       return ApiResult.failure(error: NetworkExceptions.getDioException(e)!);
     }
-  }
-}
-
-class SearchResultsParser {
-  Future<List<QuoteResponse>> parseInBackground(String encodedJson) {
-    // compute spawns an isolate,
-    // runs a callback on that isolate,
-    // and returns a Future with the result
-    return compute(_decodeAndParseJson, encodedJson);
-  }
-
-  List<QuoteResponse> _decodeAndParseJson(String encodedJson) {
-    final jsonData = quoteResponseFromJson(encodedJson);
-
-    // final quoteList = QuoteList.fromJson(jsonData);
-    return jsonData;
   }
 }
