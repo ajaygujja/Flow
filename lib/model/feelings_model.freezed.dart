@@ -20,8 +20,10 @@ FeelingsModel _$FeelingsModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeelingsModel {
-  String get status => throw _privateConstructorUsedError;
-  UserFeelingsData get data => throw _privateConstructorUsedError;
+  @JsonKey(nullable: true)
+  String? get status => throw _privateConstructorUsedError;
+  @JsonKey(nullable: true)
+  UserFeelingsData? get data => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,9 +36,11 @@ abstract class $FeelingsModelCopyWith<$Res> {
   factory $FeelingsModelCopyWith(
           FeelingsModel value, $Res Function(FeelingsModel) then) =
       _$FeelingsModelCopyWithImpl<$Res>;
-  $Res call({String status, UserFeelingsData data});
+  $Res call(
+      {@JsonKey(nullable: true) String? status,
+      @JsonKey(nullable: true) UserFeelingsData? data});
 
-  $UserFeelingsDataCopyWith<$Res> get data;
+  $UserFeelingsDataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -57,17 +61,21 @@ class _$FeelingsModelCopyWithImpl<$Res>
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as UserFeelingsData,
+              as UserFeelingsData?,
     ));
   }
 
   @override
-  $UserFeelingsDataCopyWith<$Res> get data {
-    return $UserFeelingsDataCopyWith<$Res>(_value.data, (value) {
+  $UserFeelingsDataCopyWith<$Res>? get data {
+    if (_value.data == null) {
+      return null;
+    }
+
+    return $UserFeelingsDataCopyWith<$Res>(_value.data!, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -80,10 +88,12 @@ abstract class _$$_FeelingsModelCopyWith<$Res>
           _$_FeelingsModel value, $Res Function(_$_FeelingsModel) then) =
       __$$_FeelingsModelCopyWithImpl<$Res>;
   @override
-  $Res call({String status, UserFeelingsData data});
+  $Res call(
+      {@JsonKey(nullable: true) String? status,
+      @JsonKey(nullable: true) UserFeelingsData? data});
 
   @override
-  $UserFeelingsDataCopyWith<$Res> get data;
+  $UserFeelingsDataCopyWith<$Res>? get data;
 }
 
 /// @nodoc
@@ -106,11 +116,11 @@ class __$$_FeelingsModelCopyWithImpl<$Res>
       status: status == freezed
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as UserFeelingsData,
+              as UserFeelingsData?,
     ));
   }
 }
@@ -118,15 +128,19 @@ class __$$_FeelingsModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_FeelingsModel implements _FeelingsModel {
-  const _$_FeelingsModel({required this.status, required this.data});
+  const _$_FeelingsModel(
+      {@JsonKey(nullable: true) this.status,
+      @JsonKey(nullable: true) this.data});
 
   factory _$_FeelingsModel.fromJson(Map<String, dynamic> json) =>
       _$$_FeelingsModelFromJson(json);
 
   @override
-  final String status;
+  @JsonKey(nullable: true)
+  final String? status;
   @override
-  final UserFeelingsData data;
+  @JsonKey(nullable: true)
+  final UserFeelingsData? data;
 
   @override
   String toString() {
@@ -162,16 +176,19 @@ class _$_FeelingsModel implements _FeelingsModel {
 
 abstract class _FeelingsModel implements FeelingsModel {
   const factory _FeelingsModel(
-      {required final String status,
-      required final UserFeelingsData data}) = _$_FeelingsModel;
+          {@JsonKey(nullable: true) final String? status,
+          @JsonKey(nullable: true) final UserFeelingsData? data}) =
+      _$_FeelingsModel;
 
   factory _FeelingsModel.fromJson(Map<String, dynamic> json) =
       _$_FeelingsModel.fromJson;
 
   @override
-  String get status => throw _privateConstructorUsedError;
+  @JsonKey(nullable: true)
+  String? get status => throw _privateConstructorUsedError;
   @override
-  UserFeelingsData get data => throw _privateConstructorUsedError;
+  @JsonKey(nullable: true)
+  UserFeelingsData? get data => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_FeelingsModelCopyWith<_$_FeelingsModel> get copyWith =>

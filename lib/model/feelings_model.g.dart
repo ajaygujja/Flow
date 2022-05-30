@@ -8,8 +8,10 @@ part of 'feelings_model.dart';
 
 _$_FeelingsModel _$$_FeelingsModelFromJson(Map<String, dynamic> json) =>
     _$_FeelingsModel(
-      status: json['status'] as String,
-      data: UserFeelingsData.fromJson(json['data'] as Map<String, dynamic>),
+      status: json['status'] as String?,
+      data: json['data'] == null
+          ? null
+          : UserFeelingsData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_FeelingsModelToJson(_$_FeelingsModel instance) =>

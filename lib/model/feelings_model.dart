@@ -12,8 +12,8 @@ String feelingsModelToJson(FeelingsModel data) => json.encode(data.toJson());
 @freezed
 class FeelingsModel with _$FeelingsModel {
   const factory FeelingsModel({
-    required String status,
-    required UserFeelingsData data,
+    @JsonKey(nullable: true) String? status,
+    @JsonKey(nullable: true) UserFeelingsData? data,
   }) = _FeelingsModel;
 
   factory FeelingsModel.fromJson(Map<String, dynamic> json) =>
