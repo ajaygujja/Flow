@@ -18,19 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ApiResult<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(FeelingsModel data) success,
+    required TResult Function(T data) success,
     required TResult Function(NetworkExceptions error) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FeelingsModel data)? success,
+    TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FeelingsModel data)? success,
+    TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
     required TResult orElse(),
   }) =>
@@ -77,9 +77,7 @@ abstract class _$$SuccessCopyWith<T, $Res> {
   factory _$$SuccessCopyWith(
           _$Success<T> value, $Res Function(_$Success<T>) then) =
       __$$SuccessCopyWithImpl<T, $Res>;
-  $Res call({FeelingsModel data});
-
-  $FeelingsModelCopyWith<$Res> get data;
+  $Res call({T data});
 }
 
 /// @nodoc
@@ -100,15 +98,8 @@ class __$$SuccessCopyWithImpl<T, $Res> extends _$ApiResultCopyWithImpl<T, $Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as FeelingsModel,
+              as T,
     ));
-  }
-
-  @override
-  $FeelingsModelCopyWith<$Res> get data {
-    return $FeelingsModelCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
   }
 }
 
@@ -118,7 +109,7 @@ class _$Success<T> implements Success<T> {
   const _$Success({required this.data});
 
   @override
-  final FeelingsModel data;
+  final T data;
 
   @override
   String toString() {
@@ -145,7 +136,7 @@ class _$Success<T> implements Success<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(FeelingsModel data) success,
+    required TResult Function(T data) success,
     required TResult Function(NetworkExceptions error) failure,
   }) {
     return success(data);
@@ -154,7 +145,7 @@ class _$Success<T> implements Success<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FeelingsModel data)? success,
+    TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
   }) {
     return success?.call(data);
@@ -163,7 +154,7 @@ class _$Success<T> implements Success<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FeelingsModel data)? success,
+    TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
     required TResult orElse(),
   }) {
@@ -206,9 +197,9 @@ class _$Success<T> implements Success<T> {
 }
 
 abstract class Success<T> implements ApiResult<T> {
-  const factory Success({required final FeelingsModel data}) = _$Success<T>;
+  const factory Success({required final T data}) = _$Success<T>;
 
-  FeelingsModel get data => throw _privateConstructorUsedError;
+  T get data => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$SuccessCopyWith<T, _$Success<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -287,7 +278,7 @@ class _$Failure<T> implements Failure<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(FeelingsModel data) success,
+    required TResult Function(T data) success,
     required TResult Function(NetworkExceptions error) failure,
   }) {
     return failure(error);
@@ -296,7 +287,7 @@ class _$Failure<T> implements Failure<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(FeelingsModel data)? success,
+    TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
   }) {
     return failure?.call(error);
@@ -305,7 +296,7 @@ class _$Failure<T> implements Failure<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FeelingsModel data)? success,
+    TResult Function(T data)? success,
     TResult Function(NetworkExceptions error)? failure,
     required TResult orElse(),
   }) {

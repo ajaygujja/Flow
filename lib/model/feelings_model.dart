@@ -10,7 +10,7 @@ FeelingsModel feelingsModelFromJson(String str) =>
 String feelingsModelToJson(FeelingsModel data) => json.encode(data.toJson());
 
 @freezed
-abstract class FeelingsModel with _$FeelingsModel {
+class FeelingsModel with _$FeelingsModel {
   const factory FeelingsModel({
     required String status,
     required UserFeelingsData data,
@@ -21,7 +21,7 @@ abstract class FeelingsModel with _$FeelingsModel {
 }
 
 @freezed
-abstract class UserFeelingsData with _$UserFeelingsData {
+class UserFeelingsData with _$UserFeelingsData {
   const factory UserFeelingsData({
     @JsonKey(name: 'feeling_percentage')
         required FeelingPercentage feelingPercentage,
@@ -34,7 +34,7 @@ abstract class UserFeelingsData with _$UserFeelingsData {
 }
 
 @freezed
-abstract class FeelingList with _$FeelingList {
+class FeelingList with _$FeelingList {
   const factory FeelingList({
     @JsonKey(name: 'user_feeling_id') required String userFeelingId,
     @JsonKey(name: 'feeling_id') required String feelingId,
@@ -47,7 +47,7 @@ abstract class FeelingList with _$FeelingList {
 }
 
 @freezed
-abstract class FeelingPercentage with _$FeelingPercentage {
+class FeelingPercentage with _$FeelingPercentage {
   const factory FeelingPercentage({
     @JsonKey(name: 'Happy') required String happy,
     @JsonKey(name: 'Sad') required String sad,
@@ -62,7 +62,7 @@ abstract class FeelingPercentage with _$FeelingPercentage {
 }
 
 @freezed
-abstract class VideoArr with _$VideoArr {
+class VideoArr with _$VideoArr {
   const factory VideoArr({
     required String title,
     required String description,

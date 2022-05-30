@@ -34,7 +34,7 @@ class DioClient {
         onRequest: (requestOptions, handler) {
           logger.i(
               'REQUEST[${requestOptions.method}] => PATH: ${requestOptions.path}'
-              '=> REQUEST VALUES: ${requestOptions.queryParameters} => HEADERS: ${requestOptions.headers}');
+              ' => REQUEST VALUES: ${requestOptions.queryParameters} => HEADERS: ${requestOptions.headers}');
           return handler.next(requestOptions);
         },
         onResponse: (response, handler) {

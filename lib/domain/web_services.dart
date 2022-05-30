@@ -1,10 +1,8 @@
-import 'package:dio/dio.dart';
 import 'package:flow/constant.dart';
-import 'package:flow/services/api_results/api_result.dart';
 import 'package:flow/model/feelings_model.dart';
+import 'package:flow/services/api_results_wrapper/api_result.dart';
 import 'package:flow/services/dio_client.dart';
 import 'package:flow/services/network_exceptions/network_exceptions.dart';
-import 'package:flutter/foundation.dart';
 
 import 'remote_interface.dart';
 
