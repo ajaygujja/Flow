@@ -1,5 +1,6 @@
 import 'package:flow/controllers/app_controller.dart';
 import 'package:flow/di/binding.dart';
+import 'package:flow/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,10 +22,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialBinding: AppBinding(),
-      home: MyHomePage(
-        title: 'Flutter Demo Home Page',
-        apiRepository: ApiRepository.getInstance(),
-      ),
+      // home: MyHomePage(
+      //   title: 'Flutter Demo Home Page',
+      //   apiRepository: ApiRepository.getInstance(),
+      // ),
+      home: const HomeScreen(),
     );
   }
 }
