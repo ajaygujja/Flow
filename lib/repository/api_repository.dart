@@ -17,16 +17,11 @@ class ApiRepository implements IDataSource {
   ApiRepository._(this._webService);
 
   static ApiRepository getInstance() {
-    if (_instance == null) {
-      var dio = Dio();
-      _instance = ApiRepository._(
-        WebServices(
-          dioClient: DioClient(baseUrl: BASE_URL, dio: dio),
-        ),
-      );
-    }
-
-    return _instance!;
+    return _instance ??= ApiRepository._(
+      WebServices(
+        dioClient: DioClient(baseUrl: BASE_URL, dio: Dio()),
+      ),
+    );
   }
 
   @override

@@ -17,7 +17,10 @@ class WebServices implements IDataSource {
 
   @override
   Future<ApiResult<FeelingsModel>> getListOfUserFeeling() async {
-    var params = {"user_id": 3206161992, "feeling_date": "15-04-2022"};
+    var params = {
+      "user_id": 3206161992,
+      "feeling_date": "15-04-2022",
+    };
 
     dioClient?.dioInstance?.options.headers['x-api-key'] =
         'f6d646a6c2f2df883ea0cccaa4097358ede98284';
