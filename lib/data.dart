@@ -15,3 +15,5 @@ final emoji = {
   'Bored': 'assets/images/confused.png',
   'Love': 'assets/images/smile.png'
 };
+
+final gym_photos = ['assets/images/gym_1.jpeg', 'assets/images/gym_2.jpeg'];
