@@ -3,8 +3,10 @@
 import 'package:flow/country_drop_down.dart';
 import 'package:flow/custom_app_bar.dart';
 import 'package:flow/data.dart';
+import 'package:flow/feelings_history.dart';
 import 'package:flow/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -192,44 +194,49 @@ class _HomeScreenState extends State<HomeScreen> {
           SizedBox(
             height: screenHeight * 0.03,
           ),
-          Container(
-            margin:
-                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-            padding: const EdgeInsets.all(10.0),
-            height: screenHeight * 0.15,
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [Color(0xffAD9FE4), Color(0xFF473F97)],
+          InkWell(
+            onTap: () {
+              Get.to(() => const UserfeelingsHistory());
+            },
+            child: Container(
+              margin:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              padding: const EdgeInsets.all(10.0),
+              height: screenHeight * 0.15,
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [Color(0xffAD9FE4), Color(0xFF473F97)],
+                ),
+                borderRadius: BorderRadius.circular(20.0),
               ),
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Image.asset("assets/images/own_test.png"),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      "Do your own test!",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      "Follow the instructions\nto do your own test. ",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.0,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Image.asset("assets/images/own_test.png"),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Do your own test!",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold),
                       ),
-                      maxLines: 2,
-                      textAlign: TextAlign.center,
-                    )
-                  ],
-                )
-              ],
+                      Text(
+                        "Follow the instructions\nto do your own test. ",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                        ),
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
           ),
         ],
