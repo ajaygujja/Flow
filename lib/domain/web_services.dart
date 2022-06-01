@@ -1,4 +1,4 @@
-import 'package:flow/constant.dart';
+import 'package:flow/common/constant.dart';
 import 'package:flow/model/feelings_model.dart';
 import 'package:flow/services/api_results_wrapper/api_result.dart';
 import 'package:flow/services/dio_client.dart';

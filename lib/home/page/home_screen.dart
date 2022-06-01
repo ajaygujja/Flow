@@ -1,10 +1,10 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:flow/country_drop_down.dart';
-import 'package:flow/custom_app_bar.dart';
-import 'package:flow/data.dart';
-import 'package:flow/feelings_history.dart';
-import 'package:flow/styles.dart';
+import 'package:flow/common/data.dart';
+import 'package:flow/common/style.dart';
+import 'package:flow/home/widgets/country_drop_down.dart';
+import 'package:flow/home/widgets/custom_app_bar.dart';
+import 'package:flow/users_history/ui/pages/feelings_history.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';

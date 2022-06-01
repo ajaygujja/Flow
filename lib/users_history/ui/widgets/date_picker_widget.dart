@@ -1,6 +1,6 @@
-import 'package:flow/colors.dart';
-import 'package:flow/date_widget.dart';
-import 'package:flow/style.dart';
+import 'package:flow/common/colors.dart';
+import 'package:flow/common/style.dart';
+import 'package:flow/users_history/ui/widgets/date_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -39,10 +39,6 @@ class DatePicker extends StatefulWidget {
   /// Contains the list of inactive dates.
   /// All the dates defined in this List will be deactivated
   final List<DateTime>? inactiveDates;
-
-  // /// Contains the list of active dates.
-  // /// Only the dates in this list will be activated.
-  // final List<DateTime>? activeDates;
 
   /// Callback function for when a different date is selected
   final DateChangeListener? onDateChange;

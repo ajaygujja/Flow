@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flow/constant.dart';
+
+import '../common/constant.dart';
 
 enum Method { POST, GET, PUT, DELETE, PATCH }
 const _defaultConnectTimeout = Duration.millisecondsPerMinute;
