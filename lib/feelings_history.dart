@@ -1,4 +1,6 @@
+import 'package:flow/data.dart';
 import 'package:flow/date_picker_widget.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -10,6 +12,8 @@ class UserfeelingsHistory extends StatefulWidget {
 }
 
 class _UserfeelingsHistoryState extends State<UserfeelingsHistory> {
+  bool _value = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +40,12 @@ class _UserfeelingsHistoryState extends State<UserfeelingsHistory> {
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 22),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 40,
+              height: 20,
             ),
             const Text(
               'Your feelings from last 30 days',
@@ -49,6 +53,10 @@ class _UserfeelingsHistoryState extends State<UserfeelingsHistory> {
                 fontSize: 16,
               ),
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            const MoodSwitch(),
             const SizedBox(
               height: 10,
             ),
@@ -162,6 +170,84 @@ class _UserfeelingsHistoryState extends State<UserfeelingsHistory> {
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit euismod risus elementum magna scelerisque nunc sed varius. Tellus quis tristique adipiscing sed metus, sit ac adipiscing. Leo aenean sed eu purus maecenas posuere '),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class MoodSwitch extends StatelessWidget {
+  const MoodSwitch({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 100,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: 7,
+        itemBuilder: ((context, index) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Opacity(
+                opacity: 0.9,
+                child: Container(
+                  // foregroundDecoration: BoxDecoration(
+                  // color: const Color(0xff1A000000).withOpacity(0.8),
+                  // backgroundBlendMode: BlendMode.lighten,
+                  // ),
+                  height: 80,
+                  width: 40,
+                  margin: const EdgeInsets.only(right: 10, left: 5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: const Color(0xffF1F2F3),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Color(0xff1A000000),
+                        offset: Offset(
+                          2.0,
+                          2.0,
+                        ),
+                        blurRadius: 5.0,
+                        spreadRadius: 1.0,
+                      ),
+                    ],
+                  ),
+
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(left: 9, right: 8, top: 16),
+                        child: Text(
+                          '30%',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ),
+                      CircleAvatar(
+                        backgroundColor: const Color(0xff85C454),
+                        radius: 22,
+                        child: Center(
+                            child: Image.asset(
+                          emoji.values.elementAt(index),
+                          width: 20,
+                          height: 20,
+                        )),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 4,
+              ),
+              Text(emoji.keys.elementAt(index), style: TextStyle(fontSize: 12))
+            ],
+          );
+        }),
       ),
     );
   }
