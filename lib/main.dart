@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'repository/api_repository.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  AppBinding().dependencies();
   runApp(const MyApp());
 }
 

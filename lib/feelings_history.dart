@@ -1,7 +1,8 @@
+import 'package:flow/controllers/app_controller.dart';
 import 'package:flow/data.dart';
 import 'package:flow/date_picker_widget.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class UserfeelingsHistory extends StatefulWidget {
@@ -12,56 +13,86 @@ class UserfeelingsHistory extends StatefulWidget {
 }
 
 class _UserfeelingsHistoryState extends State<UserfeelingsHistory> {
-  bool _value = false;
+  final controller = Get.find<AppController>();
+
+  @override
+  void initState() {
+    super.initState();
+    _getUsersData();
+  }
+
+  _getUsersData() {
+    controller.getUserFeelings();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: const Text(
-          'Your Feelings History',
-          style: TextStyle(color: Colors.black, fontSize: 20),
-          // textAlign: TextAlign.center,
-        ),
-        centerTitle: true,
-        leading: Container(
-          margin: const EdgeInsets.only(left: 15),
-          child: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.black,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: const Text(
+            'Your Feelings History',
+            style: TextStyle(color: Colors.black, fontSize: 20),
+            // textAlign: TextAlign.center,
+          ),
+          centerTitle: true,
+          leading: Container(
+            margin: const EdgeInsets.only(left: 15),
+            child: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.black,
+              ),
+              iconSize: 24.0,
             ),
-            iconSize: 24.0,
           ),
         ),
-      ),
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            MoodSwitch(),
-            Divider(
-              height: 1,
-              thickness: 1,
-            ),
-            DateSection(),
-            Divider(
-              height: 1,
-              thickness: 1,
-            ),
-            MoodTimeLine(),
-            Divider(
-              height: 1,
-              thickness: 1,
-            ),
-            YoutubeSection(),
-          ],
-        ),
+        backgroundColor: Colors.white,
+        body: Obx(() {
+          if (controller.isLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (controller.exceptions?.isNotEmpty ?? false) {
+            return Center(child: Text(controller.exceptions.toString()));
+          }
+          return const UserfeelingsPage();
+        }));
+  }
+}
+
+class UserfeelingsPage extends StatelessWidget {
+  const UserfeelingsPage({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [
+          MoodSwitch(),
+          Divider(
+            height: 1,
+            thickness: 1,
+          ),
+          DateSection(),
+          Divider(
+            height: 1,
+            thickness: 1,
+          ),
+          MoodTimeLine(),
+          Divider(
+            height: 1,
+            thickness: 1,
+          ),
+          YoutubeSection(),
+        ],
       ),
     );
   }

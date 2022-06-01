@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  "COVID-19",
+                  "FLOW",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 25.0,
@@ -240,17 +240,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
   SliverToBoxAdapter _userFeelingTab() {
     return SliverToBoxAdapter(
-      child: Container(
-        margin: const EdgeInsets.only(bottom: 50),
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        height: 150,
-        width: double.infinity,
-        child: Stack(
-          alignment: Alignment.bottomLeft,
-          children: [
-            InkWell(
-              onTap: () => Get.to(() => const UserfeelingsHistory()),
-              child: Container(
+      child: InkWell(
+        onTap: () => Get.to(() => const UserfeelingsHistory()),
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          height: 150,
+          width: double.infinity,
+          child: Stack(
+            alignment: Alignment.bottomLeft,
+            children: [
+              Container(
                 padding: EdgeInsets.only(
                     left: MediaQuery.of(context).size.width * .4,
                     top: 20,
@@ -280,17 +280,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: SvgPicture.asset('assets/images/nurse.svg'),
-            ),
-            Positioned(
-              top: 30,
-              right: 10,
-              child: SvgPicture.asset('assets/images/virus.svg'),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: SvgPicture.asset('assets/images/nurse.svg'),
+              ),
+              Positioned(
+                top: 30,
+                right: 10,
+                child: SvgPicture.asset('assets/images/virus.svg'),
+              ),
+            ],
+          ),
         ),
       ),
     );
