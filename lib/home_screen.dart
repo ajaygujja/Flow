@@ -6,6 +6,7 @@ import 'package:flow/data.dart';
 import 'package:flow/feelings_history.dart';
 import 'package:flow/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -28,7 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
         slivers: [
           _buildHeader(screenHeight),
           _buildPreventionTips(screenHeight),
-          _buildYourOwnTest(screenHeight)
+          _buildYourOwnTest(screenHeight),
+          _userFeelingTab()
         ],
       ),
     );
@@ -145,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: screenHeight * 0.03,
+              height: screenHeight * 0.01,
             ),
             const Text(
               "Prevention Tips",
@@ -191,55 +193,105 @@ class _HomeScreenState extends State<HomeScreen> {
     return SliverToBoxAdapter(
       child: Column(
         children: [
-          SizedBox(
-            height: screenHeight * 0.03,
-          ),
-          InkWell(
-            onTap: () {
-              Get.to(() => const UserfeelingsHistory());
-            },
-            child: Container(
-              margin:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-              padding: const EdgeInsets.all(10.0),
-              height: screenHeight * 0.15,
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                  colors: [Color(0xffAD9FE4), Color(0xFF473F97)],
-                ),
-                borderRadius: BorderRadius.circular(20.0),
+          Container(
+            margin:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+            padding: const EdgeInsets.all(10.0),
+            height: screenHeight * 0.15,
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [Color(0xffAD9FE4), Color(0xFF473F97)],
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Image.asset("assets/images/own_test.png"),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "Do your own test!",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        "Follow the instructions\nto do your own test. ",
-                        style: TextStyle(
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Image.asset("assets/images/own_test.png"),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      "Do your own test!",
+                      style: TextStyle(
                           color: Colors.white,
-                          fontSize: 16.0,
-                        ),
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
-                      )
-                    ],
-                  )
-                ],
-              ),
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Follow the instructions\nto do your own test. ",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0,
+                      ),
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                    )
+                  ],
+                )
+              ],
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  SliverToBoxAdapter _userFeelingTab() {
+    return SliverToBoxAdapter(
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 50),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        height: 150,
+        width: double.infinity,
+        child: Stack(
+          alignment: Alignment.bottomLeft,
+          children: [
+            InkWell(
+              onTap: () => Get.to(() => const UserfeelingsHistory()),
+              child: Container(
+                padding: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * .4,
+                    top: 20,
+                    right: 20),
+                height: 130,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFF60BE93), Color(0xFF188D59)],
+                    ),
+                    borderRadius: BorderRadius.circular(20)),
+                child: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: 'Your Feelings\nHistory!\n',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6!
+                            .copyWith(color: Colors.white),
+                      ),
+                      TextSpan(
+                          text: 'Click Here!',
+                          style:
+                              TextStyle(color: Colors.white.withOpacity(0.7)))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: SvgPicture.asset('assets/images/nurse.svg'),
+            ),
+            Positioned(
+              top: 30,
+              right: 10,
+              child: SvgPicture.asset('assets/images/virus.svg'),
+            ),
+          ],
+        ),
       ),
     );
   }
