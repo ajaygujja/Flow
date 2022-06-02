@@ -1,6 +1,6 @@
-import 'package:flow/model/feelings_model.dart';
 import 'package:flow/repository/api_repository.dart';
 import 'package:flow/services/network_exceptions/network_exceptions.dart';
+import 'package:flow/users_history/model/feelings_model.dart';
 import 'package:get/get.dart';
 
 class AppController extends GetxController {

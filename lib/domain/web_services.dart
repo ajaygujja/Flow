@@ -1,9 +1,9 @@
 import 'package:flow/common/constant.dart';
-import 'package:flow/model/feelings_model.dart';
 import 'package:flow/services/api_results_wrapper/api_result.dart';
 import 'package:flow/services/dio_client.dart';
 import 'package:flow/services/network_exceptions/network_exceptions.dart';
 
+import '../users_history/model/feelings_model.dart';
 import 'remote_interface.dart';
 
 class WebServices implements IDataSource {

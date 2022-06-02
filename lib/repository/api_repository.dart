@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:flow/domain/remote_interface.dart';
 import 'package:flow/domain/web_services.dart';
-import 'package:flow/model/feelings_model.dart';
 import 'package:flow/services/api_results_wrapper/api_result.dart';
 import 'package:flow/services/dio_client.dart';
+import 'package:flow/users_history/model/feelings_model.dart';
 
 const BASE_URL = 'https://www.qubehealth.com/';
 
