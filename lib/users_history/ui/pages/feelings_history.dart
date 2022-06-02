@@ -82,27 +82,15 @@ class UserfeelingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      // padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          MoodSwitch(
-            feelingPercentage: userFeelingsData.feelingPercentage,
-          ),
-          const Divider(
-            height: 1,
-            thickness: 1,
-          ),
+          MoodSwitch(feelingPercentage: userFeelingsData.feelingPercentage),
+          const Divider(height: 1, thickness: 1),
           const DateSection(),
-          const Divider(
-            height: 1,
-            thickness: 1,
-          ),
+          const Divider(height: 1, thickness: 1),
           const MoodTimeLine(),
-          const Divider(
-            height: 1,
-            thickness: 1,
-          ),
+          const Divider(height: 1, thickness: 1),
           const YoutubeSection(),
         ],
       ),

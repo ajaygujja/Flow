@@ -1,10 +1,7 @@
-import 'package:flow/controllers/app_controller.dart';
 import 'package:flow/di/binding.dart';
 import 'package:flow/home/page/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'repository/api_repository.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

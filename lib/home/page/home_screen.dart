@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
           _buildHeader(screenHeight),
           _buildPreventionTips(screenHeight),
           _buildYourOwnTest(screenHeight),
-          _userFeelingTab()
+          _buildUserFeelingTab()
         ],
       ),
     );
@@ -238,7 +238,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  SliverToBoxAdapter _userFeelingTab() {
+  SliverToBoxAdapter _buildUserFeelingTab() {
     return SliverToBoxAdapter(
       child: InkWell(
         onTap: () => Get.to(() => const UserfeelingsHistory()),

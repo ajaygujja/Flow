@@ -21,6 +21,7 @@ class AppController extends GetxController {
     apiResult.when(success: (data) {
       _usersFeelings.value = data;
     }, failure: (NetworkExceptions error) async {
+      /// Exception Occured
       exceptions = NetworkExceptions.getErrorMessage(error);
     });
   }
