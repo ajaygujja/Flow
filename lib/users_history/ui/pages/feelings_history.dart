@@ -1,14 +1,11 @@
-import 'package:flow/common/data.dart';
 import 'package:flow/controllers/app_controller.dart';
 import 'package:flow/users_history/model/feelings_model.dart';
-import 'package:flow/users_history/ui/widgets/date_picker_widget.dart';
 import 'package:flow/users_history/ui/widgets/date_section.dart';
 import 'package:flow/users_history/ui/widgets/mood_switch.dart';
 import 'package:flow/users_history/ui/widgets/mood_timeline.dart';
 import 'package:flow/users_history/ui/widgets/youtube_section.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 
 class UserfeelingsHistory extends StatefulWidget {
   const UserfeelingsHistory({Key? key}) : super(key: key);
@@ -85,7 +82,7 @@ class UserfeelingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      // padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
